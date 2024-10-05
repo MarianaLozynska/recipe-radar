@@ -1,3 +1,11 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.quote-text {
+  @apply text-3xl sm:text-3xl md:text-4xl italic text-yellow-50 leading-loose font-light font-serif tracking-wide mt-4;
+}
+
+.author-text {
+  @apply text-base sm:text-2xl text-yellow-50 pr-10 font-light italic text-right mt-4 tracking-wider leading-relaxed;
+}
