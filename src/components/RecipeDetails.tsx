@@ -1,7 +1,8 @@
 import { useEffect, useState } from "react";
-import { FaRegClock, FaNutritionix, FaHeart } from "react-icons/fa";
+import { FaNutritionix, FaHeart } from "react-icons/fa";
 import { PiChefHat } from "react-icons/pi";
 import { TbToolsKitchen3 } from "react-icons/tb";
+import { FaClock } from "react-icons/fa6";
 
 interface RecipeDetailsProps {
   recipeId: number;
@@ -59,9 +60,9 @@ const RecipeDetails: React.FC<RecipeDetailsProps> = ({
 
   const keyInformation = [
     {
-      label: <FaRegClock className="text-lg" />,
+      label: <FaClock className="text-lg" />,
       value: (
-        <div className="flex flex-col text-center">
+        <div className="flex flex-col text-center ">
           <span>{`Prep: ${recipe.prepTimeMinutes} mins`}</span>
           <span>{`Cook: ${recipe.cookTimeMinutes} mins`}</span>
         </div>
@@ -90,23 +91,24 @@ const RecipeDetails: React.FC<RecipeDetailsProps> = ({
   const cardStyle =
     "p-6 rounded-lg shadow-lg max-w-4xl mx-auto transition-colors bg-amber-50";
   const keyInfoStyle =
-    "px-4 py-2 rounded-lg shadow-md max-w-4xl mx-auto transition-colors bg-amber-50 hover:bg-amber-100";
+    "px-4 py-2 rounded-lg shadow-md max-w-4xl mx-auto transition-colors bg-amber-100";
   const infoItemStyle =
-    "flex flex-col items-center p-1 bg-transparent space-x-0 text-amber-700 block text-center";
+    "flex flex-col items-center pt-1 bg-transparent space-x-0 text-amber-900 block text-center";
 
   return (
     <div className={containerStyle}>
-      <h1 className="text-4xl text-center font-extrabold text-amber-100 p-2">
-        {recipe.name}
-      </h1>
-
       <div className={cardStyle}>
+        <h1 className="text-5xl text-center font-extrabold text-gray-900 pt-0 pb-6">
+          {recipe.name}
+        </h1>
         <div className={keyInfoStyle}>
           <div className="flex flex-wrap justify-between text-sm font-medium">
             {keyInformation.map((item, index) => (
               <div key={index} className={infoItemStyle}>
-                <strong className="text-amber-900 block">{item.label}</strong>
-                <span className={index !== 0 ? "mt-2" : ""}>{item.value}</span>
+                <strong className="text-gray-900 block">{item.label}</strong>
+                <span className={index !== 0 ? "mt-4" : "mt-2"}>
+                  {item.value}
+                </span>
               </div>
             ))}
           </div>
@@ -158,7 +160,7 @@ const RecipeDetails: React.FC<RecipeDetailsProps> = ({
 
         <div className="text-center mt-6">
           <button
-            className="w-32 text-amber-50 bg-amber-800 p-2 rounded-md border-2 border-transparent hover:bg-amber-100 hover:text-amber-800 hover:border-amber-800 transition-colors duration-300 ease-in-out focus:outline-none focus:ring-2 focus:ring-amber-800 focus:ring-offset-2"
+            className="w-32 text-amber-100 bg-gray-900 p-2 rounded-md border-2 border-transparent hover:bg-amber-100 hover:text-gray-900 hover:border-gray-900 transition-colors duration-300 ease-in-out focus:outline-none focus:ring-2 focus:ring-gray-900 focus:ring-offset-2"
             onClick={closeDetails}
           >
             Close
