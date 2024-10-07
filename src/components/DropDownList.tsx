@@ -12,7 +12,6 @@ interface DropdownProps {
 
 const DropdownList: React.FC<DropdownProps> = ({ onSelect }) => {
   const [recipes, setRecipes] = useState<Recipe[]>([]);
-  const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
   const [isOpen, setIsOpen] = useState(false);
 
@@ -27,8 +26,6 @@ const DropdownList: React.FC<DropdownProps> = ({ onSelect }) => {
         setRecipes(data.recipes);
       } catch (err) {
         setError((err as Error).message);
-      } finally {
-        setLoading(false);
       }
     };
     fetchRecipes();
@@ -41,7 +38,6 @@ const DropdownList: React.FC<DropdownProps> = ({ onSelect }) => {
 
   const toggleDropdown = () => setIsOpen(!isOpen);
 
-  if (loading) return <p>Loading...</p>;
   if (error) return <p>Error: {error}</p>;
 
   return (
