@@ -99,7 +99,7 @@ const RecipeDetails: React.FC<RecipeDetailsProps> = ({
 
   return (
     <div className={containerStyle}>
-      <div className={cardStyle}>
+      <div className={cardStyle} data-testid="recipe-details">
         {/* Close Button  */}
         <button
           onClick={closeDetails}
@@ -173,6 +173,7 @@ const RecipeDetails: React.FC<RecipeDetailsProps> = ({
         <div className="text-center mt-6">
           <button
             className="w-32 text-amber-100 bg-gray-900 p-2 rounded-md border-2 border-transparent hover:bg-amber-100 hover:text-gray-900 hover:border-gray-900 transition-colors duration-300 ease-in-out focus:outline-none focus:ring-2 focus:ring-gray-900 focus:ring-offset-2"
+            data-testid="close-button"
             onClick={closeDetails}
           >
             Close

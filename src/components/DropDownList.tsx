@@ -52,7 +52,8 @@ const DropdownList: React.FC<DropdownProps> = ({ onSelect }) => {
       <button
         onClick={toggleDropdown}
         aria-expanded={isOpen}
-        className="flex items-center p-2 rounded-md text-gray-900 focus:outline-none "
+        className="flex items-center p-2 rounded-md text-gray-900 focus:outline-none"
+        data-testid="select-recipe-button"
       >
         Our Recipes
         <ChevronDownIcon
@@ -63,12 +64,13 @@ const DropdownList: React.FC<DropdownProps> = ({ onSelect }) => {
       </button>
 
       {isOpen && (
-        <ul className={ulStyle}>
+        <ul className={ulStyle} data-testid="recipe-list">
           {recipes.map((recipe) => (
             <li
               key={recipe.id}
               onClick={() => handleSelect(recipe)}
               className="hover:bg-amber-100 hover:text-amber-900 cursor-pointer text-sm p-2 text-amber-100 rounded-md font-bold"
+              data-testid="recipe-item"
             >
               {recipe.name}
             </li>
