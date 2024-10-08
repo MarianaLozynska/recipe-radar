@@ -8,8 +8,8 @@ export default defineConfig({
   },
   use: {
     browserName: "chromium", // Default browser for tests
-    baseURL: "http://localhost:3000", // Base URL for the Vite app (adjust port if needed)
-    trace: "on", // Capture trace when retrying failed tests
+    baseURL: "http://localhost:5173", // Base URL for the Vite app (adjust port if needed)
+    trace: "off", // Capture trace when retrying failed tests
     headless: true, // Headless mode by default
   },
   // Configure projects for multiple browsers
