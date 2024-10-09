@@ -1,16 +1,16 @@
 import { defineConfig, devices } from "@playwright/test";
 
 export default defineConfig({
-  testDir: "./playwright-tests", // Directory where your Playwright tests live
+  testDir: "./playwright-tests",
   timeout: 30 * 1000, // 30 seconds timeout for each test
   expect: {
     timeout: 5000, // Timeout for assertions
   },
   use: {
-    browserName: "chromium", // Default browser for tests
-    baseURL: "http://localhost:5173", // Base URL for your app
+    browserName: "chromium",
+    baseURL: "http://localhost:5173",
     trace: "off",
-    headless: true, // Run tests in headless mode
+    headless: true,
   },
   // Configure projects for multiple browsers
   projects: [
@@ -27,6 +27,5 @@ export default defineConfig({
     //   use: { ...devices["Desktop Safari"] },
     // },
   ],
-  // Add testMatch option to recognize .e2e.ts files
-  testMatch: ["**/*.e2e.ts"], // Recognize files with the .e2e.ts extension
+  testMatch: ["**/*.e2e.ts"],
 });

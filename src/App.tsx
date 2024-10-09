@@ -38,7 +38,7 @@ const App: React.FC = () => {
 
 export default App;
 
-// To Do
+// Possible improvements
 
 // 8. Add a README.md file to the app.
 // 9. Add search functionality to the app.
