@@ -2,7 +2,7 @@ import Header from "./components/Header/Header";
 import { AUTHOR, QUOTE } from "./constants/quotes";
 import BackgroundSection from "./components/BackgroundSection";
 import { useState } from "react";
-import RecipeDetails from "./components/RecipeDetails";
+import RecipeDetails from "./components/RecipeDetails/RecipeDetails";
 
 const App: React.FC = () => {
   const [recipeId, setRecipeId] = useState<number>(0);

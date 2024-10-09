@@ -27,3 +27,18 @@
 .chevron-rotate {
     @apply rotate-180;
 }
+
+.loadingSpinner {
+    @apply border-4 border-gray-300 border-l-amber-100 rounded-full w-16 h-16 mx-auto;
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
+}

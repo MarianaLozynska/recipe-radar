@@ -1,6 +1,5 @@
 import React, { useState, useEffect, useCallback } from "react";
 import { ChevronDownIcon } from "@heroicons/react/24/solid";
-import Modal from "../Modal/Modal";
 import "./DropdownList.css";
 
 interface Recipe {
@@ -17,7 +16,6 @@ const DropdownList: React.FC<DropdownProps> = ({ onSelect }) => {
   const [error, setError] = useState<string | null>(null);
   const [isOpen, setIsOpen] = useState(false);
   const [loading, setLoading] = useState<boolean>(true);
-  const [showModal, setShowModal] = useState<boolean>(false); // New state for modal
 
   const fetchRecipes = useCallback(async () => {
     try {
@@ -25,7 +23,7 @@ const DropdownList: React.FC<DropdownProps> = ({ onSelect }) => {
       if (!response.ok) throw new Error("Failed to fetch recipe names");
       const data = await response.json();
       setRecipes(data.recipes);
-      setError(null); // Reset error if successful
+      setError(null);
     } catch (err) {
       setError((err as Error).message);
     } finally {
@@ -37,22 +35,6 @@ const DropdownList: React.FC<DropdownProps> = ({ onSelect }) => {
     fetchRecipes();
   }, [fetchRecipes]);
 
-  useEffect(() => {
-    let timer: NodeJS.Timeout;
-
-    if (error || loading) {
-      timer = setTimeout(() => {
-        setShowModal(true);
-      }, 1000);
-    } else {
-      setShowModal(false);
-    }
-
-    return () => {
-      clearTimeout(timer);
-    };
-  }, [error, loading]);
-
   const toggleDropdown = () => setIsOpen((prev) => !prev);
 
   const handleSelect = (recipe: Recipe) => {
@@ -60,9 +42,21 @@ const DropdownList: React.FC<DropdownProps> = ({ onSelect }) => {
     setIsOpen(false);
   };
 
-  const handleCloseModal = () => {
-    setShowModal(false);
-  };
+  if (loading) {
+    return (
+      <div className="flex justify-center items-center min-h-screen">
+        <div className="loadingSpinner"></div>
+      </div>
+    );
+  }
+
+  if (error) {
+    return (
+      <div className="error-message">
+        <p>Error: {error}</p>
+      </div>
+    );
+  }
 
   return (
     <div className="dropdown-container">
@@ -91,12 +85,6 @@ const DropdownList: React.FC<DropdownProps> = ({ onSelect }) => {
             </li>
           ))}
         </ul>
-      )}
-      {showModal && (
-        <Modal
-          message={loading ? "Loading recipes..." : error}
-          onClose={handleCloseModal}
-        />
       )}
     </div>
   );

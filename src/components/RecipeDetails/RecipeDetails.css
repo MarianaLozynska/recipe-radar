@@ -1,0 +1,66 @@
+/* RecipeDetails.css */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* RecipeDetails.css */
+
+.containerStyle {
+    @apply relative w-full backdrop-blur-sm bg-black/20 p-8 flex flex-col gap-4 h-full;
+}
+
+.cardStyle {
+    @apply relative p-6 rounded-lg shadow-lg max-w-4xl mx-auto transition-colors bg-amber-50;
+}
+
+.keyInfoStyle {
+    @apply px-4 py-2 rounded-lg shadow-md max-w-4xl mx-auto transition-colors bg-amber-100;
+}
+
+.infoItemStyle {
+    @apply flex flex-col items-center pt-1 bg-transparent space-x-0 text-amber-900 block text-center;
+}
+
+.sectionHeadingStyle {
+    @apply text-2xl font-semibold text-amber-800 border-b-2 border-amber-800 pb-2;
+}
+
+.closeButtonStyle {
+    @apply absolute top-2 right-2 text-gray-900 text-lg font-bold focus:outline-none;
+}
+
+.recipeNameStyle {
+    @apply text-5xl text-center font-extrabold text-gray-900 pt-0 pb-6;
+}
+
+.buttonStyle {
+    @apply w-32 text-amber-100 bg-gray-900 p-2 rounded-md border-2 border-transparent hover:bg-amber-100 hover:text-gray-900 hover:border-gray-900 transition-colors duration-300 ease-in-out focus:outline-none focus:ring-2 focus:ring-gray-900 focus:ring-offset-2;
+}
+.recipeImgContainer {
+    @apply relative w-full md:w-1/2 h-80;
+}
+
+.recipeImg {
+    @apply rounded-md transition-shadow duration-500 ease-in-out object-cover w-full h-full;
+    /* Ensure the image covers the container without distortion */
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+}
+
+.recipeImg:hover {
+    box-shadow: 0 10px 15px rgba(0, 0, 0, 0.4);
+}
+
+.loadingSpinner {
+    @apply border-4 border-gray-300 border-l-amber-100 rounded-full w-16 h-16 mx-auto;
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
+}
