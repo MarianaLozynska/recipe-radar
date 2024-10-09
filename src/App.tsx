@@ -39,13 +39,7 @@ const App: React.FC = () => {
 export default App;
 
 // To Do
-// 1. Create a new component called RecipeDetails.tsx in the components folder.
-// 2. Add placeholder images to main page and each recipe.
-// 3. Import the RecipeDetails component into App.tsx.
-// 4. Render the RecipeDetails component in App.tsx.
-// 5. Add service worker to the app.
-// 6. Style the components.
-// 7. Add tests to the app.
+
 // 8. Add a README.md file to the app.
 // 9. Add search functionality to the app.
 // 10. Add filter functionality to the app.

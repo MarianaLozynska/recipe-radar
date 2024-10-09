@@ -1,0 +1,29 @@
+/* DropdownList.css */
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.dropdown-container {
+    @apply relative w-full lg:ml-auto lg:mr-20;
+}
+
+.dropdown-button {
+    @apply flex items-center p-2 rounded-md text-gray-900 focus:outline-none;
+}
+
+.dropdown-list {
+    @apply bg-gray-900 absolute z-10 mt-2 left-0 w-full lg:w-[800px] xl:w-[1050px] rounded-md shadow-lg max-h-[800px] overflow-y-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 p-4;
+}
+
+.dropdown-item {
+    @apply hover:bg-amber-100 hover:text-amber-900 cursor-pointer text-sm p-2 text-amber-100 rounded-md font-bold;
+}
+
+.chevron-icon {
+    @apply w-5 h-5 text-gray-900 ml-2 transition-transform duration-300 ease-in-out;
+}
+
+.chevron-rotate {
+    @apply rotate-180;
+}

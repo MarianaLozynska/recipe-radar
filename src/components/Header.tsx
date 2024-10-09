@@ -1,4 +1,4 @@
-import DropdownList from "./DropDownList";
+import DropdownList from "./DropDownList/DropDownList";
 
 interface HeaderProps {
   selectedRecipe: (recipeId: number) => void;

@@ -1,5 +1,7 @@
 import React, { useState, useEffect, useCallback } from "react";
 import { ChevronDownIcon } from "@heroicons/react/24/solid";
+import Modal from "../Modal"; // Adjust the path as needed
+import "./DropdownList.css"; // Ensure this path is correct
 
 interface Recipe {
   id: number;
@@ -15,8 +17,8 @@ const DropdownList: React.FC<DropdownProps> = ({ onSelect }) => {
   const [error, setError] = useState<string | null>(null);
   const [isOpen, setIsOpen] = useState(false);
   const [loading, setLoading] = useState<boolean>(true);
+  const [showModal, setShowModal] = useState<boolean>(false); // New state for modal
 
-  // Fetch recipes function
   const fetchRecipes = useCallback(async () => {
     try {
       const response = await fetch("https://dummyjson.com/recipes?select=name");
@@ -35,6 +37,22 @@ const DropdownList: React.FC<DropdownProps> = ({ onSelect }) => {
     fetchRecipes();
   }, [fetchRecipes]);
 
+  useEffect(() => {
+    let timer: NodeJS.Timeout;
+
+    if (error || loading) {
+      timer = setTimeout(() => {
+        setShowModal(true);
+      }, 1000);
+    } else {
+      setShowModal(false);
+    }
+
+    return () => {
+      clearTimeout(timer);
+    };
+  }, [error, loading]);
+
   const toggleDropdown = () => setIsOpen((prev) => !prev);
 
   const handleSelect = (recipe: Recipe) => {
@@ -42,40 +60,43 @@ const DropdownList: React.FC<DropdownProps> = ({ onSelect }) => {
     setIsOpen(false);
   };
 
-  const ulStyle = `bg-gray-900 absolute z-10 mt-2 left-0 w-full lg:w-[800px] xl:w-[1050px] rounded-md shadow-lg max-h-[800px] overflow-y-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 p-4`;
-
-  if (loading) return <p>Loading recipes...</p>;
-  if (error) return <p>Error: {error}</p>;
+  const handleCloseModal = () => {
+    setShowModal(false);
+  };
 
   return (
-    <div className="relative w-full lg:ml-auto lg:mr-20">
+    <div className="dropdown-container">
       <button
         onClick={toggleDropdown}
         aria-expanded={isOpen}
-        className="flex items-center p-2 rounded-md text-gray-900 focus:outline-none"
+        className="dropdown-button"
         data-testid="select-recipe-button"
       >
         Our Recipes
         <ChevronDownIcon
-          className={`w-5 h-5 text-gray-900 ml-2 transition-transform ease-in-out ${
-            isOpen ? "rotate-180" : ""
-          }`}
+          className={`chevron-icon ${isOpen ? "chevron-rotate" : ""}`}
         />
       </button>
 
       {isOpen && (
-        <ul className={ulStyle} data-testid="recipe-list">
+        <ul className="dropdown-list" data-testid="recipe-list">
           {recipes.map((recipe) => (
             <li
               key={recipe.id}
               onClick={() => handleSelect(recipe)}
-              className="hover:bg-amber-100 hover:text-amber-900 cursor-pointer text-sm p-2 text-amber-100 rounded-md font-bold"
+              className="dropdown-item"
               data-testid="recipe-item"
             >
               {recipe.name}
             </li>
           ))}
         </ul>
+      )}
+      {showModal && (
+        <Modal
+          message={loading ? "Loading recipes..." : error}
+          onClose={handleCloseModal}
+        />
       )}
     </div>
   );
