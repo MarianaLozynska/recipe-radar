@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useCallback } from "react";
 import { ChevronDownIcon } from "@heroicons/react/24/solid";
-import Modal from "../Modal"; // Adjust the path as needed
-import "./DropdownList.css"; // Ensure this path is correct
+import Modal from "../Modal/Modal";
+import "./DropdownList.css";
 
 interface Recipe {
   id: number;
