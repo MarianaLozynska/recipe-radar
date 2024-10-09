@@ -1,16 +1,16 @@
 import { defineConfig, devices } from "@playwright/test";
 
 export default defineConfig({
-  testDir: "./tests", // Directory where your Playwright tests will live
+  testDir: "./playwright-tests", // Directory where your Playwright tests live
   timeout: 30 * 1000, // 30 seconds timeout for each test
   expect: {
     timeout: 5000, // Timeout for assertions
   },
   use: {
     browserName: "chromium", // Default browser for tests
-    baseURL: "http://localhost:5173", // Base URL for the Vite app (adjust port if needed)
-    trace: "off", // Capture trace when retrying failed tests
-    headless: true, // Headless mode by default
+    baseURL: "http://localhost:5173", // Base URL for your app
+    trace: "off",
+    headless: true, // Run tests in headless mode
   },
   // Configure projects for multiple browsers
   projects: [
@@ -27,4 +27,6 @@ export default defineConfig({
       use: { ...devices["Desktop Safari"] },
     },
   ],
+  // Add testMatch option to recognize .e2e.ts files
+  testMatch: ["**/*.e2e.ts"], // Recognize files with the .e2e.ts extension
 });
