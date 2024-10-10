@@ -43,12 +43,33 @@ const RecipeDetails: React.FC<RecipeDetailsProps> = ({
 
   if (error) {
     return (
-      <div className="error-message">
-        <p>Error: {error}</p>
+      <div
+        className="bg-amber-100 border border-gray-800 text-gray-800 px-8 py-6 rounded relative max-w-lg mx-auto mt-20 flex justify-center items-center"
+        role="alert"
+      >
+        <div>
+          <p className="font-bold text-lg">Error: {error}</p>
+          <p className="block mt-2">{error}</p>
+        </div>
       </div>
     );
   }
 
+  if (!recipe || !recipe.ingredients) {
+    return (
+      <div
+        className="bg-amber-100 border border-gray-800 text-gray-800 px-8 py-6 rounded relative max-w-lg mx-auto mt-20 flex justify-center items-center"
+        role="alert"
+      >
+        <div>
+          <p className="font-bold text-lg">
+            Recipe details are not available. You are offline...
+          </p>
+          <p className="block mt-2">{error}</p>
+        </div>
+      </div>
+    );
+  }
   return (
     <div className="containerStyle">
       {!loading && !error && recipe && (

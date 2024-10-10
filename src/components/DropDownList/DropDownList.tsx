@@ -44,7 +44,7 @@ const DropdownList: React.FC<DropdownProps> = ({ onSelect }) => {
 
   if (loading) {
     return (
-      <div className="flex justify-center items-center min-h-screen">
+      <div className="mt-10 flex justify-center">
         <div className="loadingSpinner"></div>
       </div>
     );
@@ -52,8 +52,14 @@ const DropdownList: React.FC<DropdownProps> = ({ onSelect }) => {
 
   if (error) {
     return (
-      <div className="error-message">
-        <p>Error: {error}</p>
+      <div
+        className="bg-amber-100 border border-gray-800 text-gray-800 px-8 py-6 rounded relative max-w-lg mx-auto mt-20 flex justify-center items-center"
+        role="alert"
+      >
+        <div>
+          <p className="font-bold text-lg">Error: {error}</p>
+          <p className="block mt-2">{error}</p>
+        </div>
       </div>
     );
   }
