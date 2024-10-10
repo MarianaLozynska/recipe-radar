@@ -3,7 +3,11 @@
 **A Comprehensive Recipe Application**  
 Effortlessly explore a curated selection of delicious recipes.
 
-![Alt Text](src/assets/images/main1.jpg)![Alt Text](src/assets/images/main2.jpg)![Alt Text](src/assets/images/main3.jpg)
+<p align="center">
+  <img src="src/assets/images/main1.jpg" alt="Image 1" width="200"/>
+  <img src="src/assets/images/main2.jpg" alt="Image 2" width="200"/>
+  <img src="src/assets/images/main3.jpg" alt="Image 3" width="200"/>
+</p>
 
 ---
 
