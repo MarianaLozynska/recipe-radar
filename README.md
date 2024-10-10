@@ -3,7 +3,7 @@
 **A Comprehensive Recipe Application**  
 Effortlessly explore a curated selection of delicious recipes.
 
-![Alt Text](src/assets/images/main1.jpg)
+![Alt Text](src/assets/images/main1.jpg)![Alt Text](src/assets/images/main2.jpg)![Alt Text](src/assets/images/main3.jpg)
 
 ---
 
