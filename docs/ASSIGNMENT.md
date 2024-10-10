@@ -2,7 +2,7 @@
 
 ## Assignment: React App with Service Worker and API Caching
 
-![Assignment Banner](src/assets/images/Corsearch.jpg)
+![Assignment Banner](../src/assets/images/Corsearch.jpg)
 
 In this assignment, you will create a simple React-based web page featuring a dropdown menu that allows users to select a recipe name. Upon selection of one of the recipes, details about a recipe should be fetched and presented back to the user.
 
