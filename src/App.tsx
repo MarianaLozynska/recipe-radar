@@ -37,10 +37,3 @@ const App: React.FC = () => {
 };
 
 export default App;
-
-// Possible improvements
-
-// 8. Add a README.md file to the app.
-// 9. Add search functionality to the app.
-// 10. Add filter functionality to the app.
-// 11. Add save my favorites functionality to the app.

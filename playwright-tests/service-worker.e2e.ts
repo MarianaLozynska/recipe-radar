@@ -17,7 +17,8 @@ test.describe("Service Worker tests", () => {
 
     // Log and test whether the service worker is registered
     console.log("Service worker registration scope:", swRegistration);
-    expect(swRegistration).toBeTruthy(); // Ensure the service worker is registered
+    // Ensure the service worker is registered
+    expect(swRegistration).toBeTruthy();
   });
 
   test("should cache API responses", async ({ page }) => {
@@ -34,7 +35,8 @@ test.describe("Service Worker tests", () => {
         return cache.match(apiUrl);
       });
 
-      expect(cachedResponse).toBeTruthy(); // Verify that the API response is cached
+      // Verify that the API response is cached
+      expect(cachedResponse).toBeTruthy();
       await route.continue();
     });
 
@@ -43,15 +45,14 @@ test.describe("Service Worker tests", () => {
   });
 
   test("should return cached response when offline", async ({ page }) => {
-    const recipeUrl = "https://dummyjson.com/recipes/1"; // Example API URL
+    const recipeUrl = "https://dummyjson.com/recipes/1";
 
     // Step 1: Fetch the recipe to cache it
     const response = await page.evaluate(async (url) => {
       const res = await fetch(url);
-      return res.text(); // Return the full response content
+      return res.text();
     }, recipeUrl);
 
-    // Verify the response content
     expect(response).toContain("Classic Margherita Pizza");
 
     // Step 2: Intercept the request and mock the cached response when offline
@@ -76,7 +77,8 @@ test.describe("Service Worker tests", () => {
     await page.goto(recipeUrl);
 
     const cachedContent = await page.content();
-    expect(cachedContent).toContain("Classic Margherita Pizza"); // Verify cached data
+    // Verify cached data
+    expect(cachedContent).toContain("Classic Margherita Pizza");
 
     await page.context().setOffline(false);
   });

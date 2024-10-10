@@ -1,8 +1,8 @@
 import { useEffect, useState } from "react";
 import { IoIosClose } from "react-icons/io";
 import { Recipe, RecipeDetailsProps } from "./types";
-import "./RecipeDetails.css";
 import { getKeyInformation } from "./getKeyInformation";
+import "./RecipeDetails.css";
 
 const RecipeDetails: React.FC<RecipeDetailsProps> = ({
   recipeId,
