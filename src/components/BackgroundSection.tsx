@@ -1,4 +1,4 @@
-import backgroundImage from "../assets/backgroundImage.jpg";
+import backgroundImage from "../assets/images/backgroundImage.jpg";
 
 const BackgroundSection: React.FC<{ children: React.ReactNode }> = ({
   children,
