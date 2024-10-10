@@ -1,7 +1,7 @@
 # Recipe Radar
 
-**A Comprehensive Recipe Application**  
-Effortlessly explore a curated selection of delicious recipes.
+**Your Ultimate Recipe Companion**
+Discover a world of flavors with a wide selection of handpicked recipes, all in one easy-to-use app.
 
 <p align="center">
   <img src="src/assets/images/main1.jpg" alt="Image 1" width="200" hspace="10"/>
@@ -17,11 +17,16 @@ Effortlessly explore a curated selection of delicious recipes.
 
 ## Key Features
 
+- **Responsive Design**: Recipe Radar is fully responsive, ensuring a smooth and optimized experience on devices of all sizes, from mobile phones to large desktops.
 - **Detailed Recipe Information**: Access ingredients, instructions, preparation time, calories, and more for each recipe.
 - **Offline Support**: View cached recipes even without an internet connection.
 - **Service Worker Integration**: Ensures fast, seamless interaction through API caching.
 
 ---
+
+## Documentation
+
+- [Assignment Documentation](./ASSIGNMENT.md)
 
 ## Technology Stack
 
