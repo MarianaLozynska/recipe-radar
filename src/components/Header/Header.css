@@ -16,5 +16,5 @@
 
 /* Header Title */
 .header-title {
-    @apply text-gray-900 text-sm sm:text-lg underline font-bold sm:pr-8 pr-0 pb-1 mr-4;
+    @apply text-gray-900 text-sm sm:text-lg underline font-bold sm:pr-8 pr-0 pb-1 mr-4 pl-2;
 }
