@@ -36,6 +36,7 @@ Recipe Radar is built using modern and efficient technologies to ensure a fast a
 - **Vite** – A next-generation frontend tool for fast development.
 - **Tailwind CSS** – A utility-first CSS framework for efficient styling.
 - **TypeScript** – A typed superset of JavaScript for better code quality.
+- **Vitest** – A fast unit testing framework to test individual components and functions.
 - **Playwright** – A framework for end-to-end (E2E) testing.
 - **Service Worker** – Caches API responses to allow offline functionality.
 - **DummyJSON API** – Provides mock recipe data for demonstration purposes.
