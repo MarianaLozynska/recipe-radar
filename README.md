@@ -24,10 +24,6 @@ Discover a world of flavors with a wide selection of handpicked recipes, all in 
 
 ---
 
-## Documentation
-
-- [Assignment Documentation](./ASSIGNMENT.md)
-
 ## Technology Stack
 
 Recipe Radar is built using modern and efficient technologies to ensure a fast and scalable application.
