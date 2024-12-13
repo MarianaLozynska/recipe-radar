@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useCallback } from "react";
+import React, { useState, useEffect } from "react";
 import { ChevronDownIcon } from "@heroicons/react/24/solid";
 import "./DropdownList.css";
 
@@ -17,23 +17,24 @@ const DropdownList: React.FC<DropdownProps> = ({ onSelect }) => {
   const [isOpen, setIsOpen] = useState(false);
   const [loading, setLoading] = useState<boolean>(true);
 
-  const fetchRecipes = useCallback(async () => {
-    try {
-      const response = await fetch("https://dummyjson.com/recipes?select=name");
-      if (!response.ok) throw new Error("Failed to fetch recipe names");
-      const data = await response.json();
-      setRecipes(data.recipes);
-      setError(null);
-    } catch (err) {
-      setError((err as Error).message);
-    } finally {
-      setLoading(false);
-    }
-  }, []);
-
   useEffect(() => {
+    const fetchRecipes = async () => {
+      try {
+        const response = await fetch(
+          "https://dummyjson.com/recipes?select=name"
+        );
+        if (!response.ok) throw new Error("Failed to fetch recipe names");
+        const data = await response.json();
+        setRecipes(data.recipes);
+        setError(null);
+      } catch (err) {
+        setError((err as Error).message);
+      } finally {
+        setLoading(false);
+      }
+    };
     fetchRecipes();
-  }, [fetchRecipes]);
+  }, []);
 
   const toggleDropdown = () => setIsOpen((prev) => !prev);
 
