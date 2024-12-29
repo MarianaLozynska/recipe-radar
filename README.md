@@ -15,6 +15,10 @@ Discover a world of flavors with a wide selection of handpicked recipes, all in 
 
 **Recipe Radar** is a fun and easy-to-use app that helps you find all the recipe details you need in one place. With its clean and simple design, Recipe Radar makes it a breeze to explore new dishes, whether you're just starting out in the kitchen or you're already a seasoned pro. We've made it simple for everyone to enjoy cooking!
 
+## Deployed Application
+
+The app is deployed on Vercel and can be accessed [here](https://recipe-radar-dak5-js0k8f192-marianas-projects-6238752c.vercel.app/).
+
 ## Key Features
 
 - **Responsive Design**: Recipe Radar is fully responsive, ensuring a smooth and optimized experience on devices of all sizes, from mobile phones to large desktops.
