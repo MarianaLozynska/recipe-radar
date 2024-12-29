@@ -1,54 +1,54 @@
-import React, { useState, useEffect } from "react";
-import { ChevronDownIcon } from "@heroicons/react/24/solid";
-import "./DropdownList.css";
+import React, { useState, useEffect } from 'react'
+import { ChevronDownIcon } from '@heroicons/react/24/solid'
+import './DropdownList.css'
 
 interface Recipe {
-  id: number;
-  name: string;
+  id: number
+  name: string
 }
 
 interface DropdownProps {
-  onSelect: (recipeId: number) => void;
+  onSelect: (recipeId: number) => void
 }
 
 const DropdownList: React.FC<DropdownProps> = ({ onSelect }) => {
-  const [recipes, setRecipes] = useState<Recipe[]>([]);
-  const [error, setError] = useState<string | null>(null);
-  const [isOpen, setIsOpen] = useState(false);
-  const [loading, setLoading] = useState<boolean>(true);
+  const [recipes, setRecipes] = useState<Recipe[]>([])
+  const [error, setError] = useState<string | null>(null)
+  const [isOpen, setIsOpen] = useState(false)
+  const [loading, setLoading] = useState<boolean>(true)
 
   useEffect(() => {
     const fetchRecipes = async () => {
       try {
         const response = await fetch(
-          "https://dummyjson.com/recipes?select=name"
-        );
-        if (!response.ok) throw new Error("Failed to fetch recipe names");
-        const data = await response.json();
-        setRecipes(data.recipes);
-        setError(null);
+          'https://dummyjson.com/recipes?select=name'
+        )
+        if (!response.ok) throw new Error('Failed to fetch recipe names')
+        const data = await response.json()
+        setRecipes(data.recipes)
+        setError(null)
       } catch (err) {
-        setError((err as Error).message);
+        setError((err as Error).message)
       } finally {
-        setLoading(false);
+        setLoading(false)
       }
-    };
-    fetchRecipes();
-  }, []);
+    }
+    fetchRecipes()
+  }, [])
 
-  const toggleDropdown = () => setIsOpen((prev) => !prev);
+  const toggleDropdown = () => setIsOpen((prev) => !prev)
 
   const handleSelect = (recipe: Recipe) => {
-    onSelect(recipe.id);
-    setIsOpen(false);
-  };
+    onSelect(recipe.id)
+    setIsOpen(false)
+  }
 
   if (loading) {
     return (
       <div className="mt-10 flex justify-center">
         <div className="loadingSpinner"></div>
       </div>
-    );
+    )
   }
 
   if (error) {
@@ -62,7 +62,7 @@ const DropdownList: React.FC<DropdownProps> = ({ onSelect }) => {
           <p className="block mt-2">{error}</p>
         </div>
       </div>
-    );
+    )
   }
 
   return (
@@ -75,7 +75,7 @@ const DropdownList: React.FC<DropdownProps> = ({ onSelect }) => {
       >
         Our Recipes
         <ChevronDownIcon
-          className={`chevron-icon ${isOpen ? "chevron-rotate" : ""}`}
+          className={`chevron-icon ${isOpen ? 'chevron-rotate' : ''}`}
         />
       </button>
 
@@ -94,7 +94,7 @@ const DropdownList: React.FC<DropdownProps> = ({ onSelect }) => {
         </ul>
       )}
     </div>
-  );
-};
+  )
+}
 
-export default DropdownList;
+export default DropdownList
