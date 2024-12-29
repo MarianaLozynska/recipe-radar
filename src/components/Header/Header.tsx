@@ -1,4 +1,4 @@
-import DropdownList from '../DropDownList/DropDownList'
+import DropDownList from '../DropDownList/DropDownList'
 import './Header.css'
 import favicon from '/src/assets/favicon.jpg'
 interface HeaderProps {
@@ -12,7 +12,7 @@ const Header: React.FC<HeaderProps> = ({ selectedRecipe }) => {
         <img src={favicon} alt="RecipeRadar Logo" className="header-logo img" />
         <h1 className="header-title">RecipeRadar</h1>
       </div>
-      <DropdownList onSelect={selectedRecipe} />
+      <DropDownList onSelect={selectedRecipe} />
     </header>
   )
 }

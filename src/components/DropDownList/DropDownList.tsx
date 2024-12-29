@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import { ChevronDownIcon } from '@heroicons/react/24/solid'
-import './DropdownList.css'
+import './DropDownList.css'
 
 interface Recipe {
   id: number
@@ -11,7 +11,7 @@ interface DropdownProps {
   onSelect: (recipeId: number) => void
 }
 
-const DropdownList: React.FC<DropdownProps> = ({ onSelect }) => {
+const DropDownList: React.FC<DropdownProps> = ({ onSelect }) => {
   const [recipes, setRecipes] = useState<Recipe[]>([])
   const [error, setError] = useState<string | null>(null)
   const [isOpen, setIsOpen] = useState(false)
@@ -97,4 +97,4 @@ const DropdownList: React.FC<DropdownProps> = ({ onSelect }) => {
   )
 }
 
-export default DropdownList
+export default DropDownList
