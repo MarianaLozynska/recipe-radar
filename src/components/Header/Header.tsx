@@ -1,24 +1,20 @@
-import DropdownList from "../DropDownList/DropDownList";
-import "./Header.css";
-
+import DropdownList from '../DropDownList/DropDownList'
+import './Header.css'
+import favicon from '/src/assets/favicon.jpg'
 interface HeaderProps {
-  selectedRecipe: (recipeId: number) => void;
+  selectedRecipe: (recipeId: number) => void
 }
 
 const Header: React.FC<HeaderProps> = ({ selectedRecipe }) => {
   return (
     <header className="header">
       <div className="header-logo">
-        <img
-          src="src/assets/favicon.jpg"
-          alt="RecipeRadar Logo"
-          className="header-logo img"
-        />
+        <img src={favicon} alt="RecipeRadar Logo" className="header-logo img" />
         <h1 className="header-title">RecipeRadar</h1>
       </div>
       <DropdownList onSelect={selectedRecipe} />
     </header>
-  );
-};
+  )
+}
 
-export default Header;
+export default Header
